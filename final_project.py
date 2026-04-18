@@ -1,3 +1,5 @@
+# David Cho
+# 4/9/2026
 import pandas as pd
 from collections import Counter
 import matplotlib.pyplot as plt
@@ -87,13 +89,12 @@ grouped_df = pd.DataFrame(
     columns=["Category", "Total Mentions"]
 ).sort_values("Total Mentions", ascending=False)
 
-# 🎨 Colors
+# Colors
 colors = [
     "#4CAF50", "#2196F3", "#FF9800", "#9C27B0",
     "#F44336", "#00BCD4", "#FFC107", "#795548"
 ]
 
-# Optional: use top 6 for cleaner chart
 top_df = grouped_df.head(6)
 
 # Plot pie chart
@@ -111,9 +112,7 @@ plt.title("Most Helpful Supports Needed", fontsize=14, fontweight='bold')
 plt.tight_layout()
 plt.show()
 
-
 # "What is your age group?"
-'''
 col = "What is your age group?"
 
 # Clean text
@@ -125,7 +124,7 @@ valid_df = df[df[col].notna()]
 # Count responses
 counts = valid_df[col].value_counts()
 
-# Optional: sort by logical age order (adjust if needed)
+# Sort by age order
 order = [
     "Under 18",
     "18 - 24",
@@ -137,7 +136,7 @@ order = [
 
 counts = counts.reindex(order).dropna()
 
-# 🎨 Colors
+# Colors
 colors = [
     "#4CAF50", "#2196F3", "#FF9800",
     "#9C27B0", "#F44336", "#00BCD4", "#FFC107"
@@ -157,10 +156,8 @@ plt.title("Age Distribution of Respondents", fontsize=14, fontweight='bold')
 
 plt.tight_layout()
 plt.show()
-'''
 
 # Pie chart for community voice question
-'''
 col = "Are you part of a community whose voice you feel is not being heard?"
 
 # Normalize text
@@ -171,12 +168,10 @@ valid_df = df[df[col].notna()]
 
 # Count responses
 counts = valid_df[col].value_counts()
-
-# Reorder explicitly (so it always shows Yes / No / Maybe nicely)
 order = ["yes", "no", "maybe"]
 counts = counts.reindex(order).dropna()
 
-# 🎨 Colors
+# Colors
 colors = ["#F44336", "#2196F3", "#FF9800"]  
 # red = yes (not heard), blue = no, orange = maybe
 
@@ -195,13 +190,9 @@ plt.title("Do People Feel Their Community Voice Is Not Being Heard?",
 
 plt.tight_layout()
 plt.show()
-'''
-# Pie chart for community voice question
-
 
 
 #ALICE Analysis 
-'''
 col = "If an unexpected expense of $400 came up, would you be able to pay it?"
 
 # Normalize text
@@ -226,7 +217,6 @@ print(f"Total Valid Responses: {len(valid_df)}")
 # Count responses
 counts = valid_df[col].value_counts()
 
-# 🎨 Define colors
 colors = ["#4CAF50", "#F44336", "#FF9800"]  # green, red, orange
 
 # Plot pie chart
@@ -244,7 +234,6 @@ plt.title("Ability to Cover $400 Emergency Expense", fontsize=14, fontweight='bo
 plt.tight_layout()
 plt.show()
 
-
 # Plot bar chart
 plt.figure()
 plt.bar(grouped_df["Category"], grouped_df["Total Mentions"])
@@ -257,7 +246,7 @@ plt.xticks(rotation=45, ha="right")
 plt.tight_layout()
 plt.show()
 
-# 🎨 Colors
+# Custom colors
 colors = [
     "#4CAF50", "#2196F3", "#FF9800", "#9C27B0",
     "#F44336", "#00BCD4", "#FFC107", "#795548", "#607D8B"
@@ -276,4 +265,3 @@ plt.title("Distribution of Hardest Expenses to Afford", fontsize=14, fontweight=
 
 plt.tight_layout()
 plt.show()
-'''
